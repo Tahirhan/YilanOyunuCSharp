@@ -2,7 +2,7 @@ namespace YılanOyunu
 {
     public partial class FormOyun : Form
     {
-        private List<Cember> yilan = new List<Cember>();
+        private List<Cember> yilan = new List<Cember>(); // yılan cember objelerinden olusuyor
         private Cember besin = new Cember();
 
         public FormOyun()
@@ -33,14 +33,14 @@ namespace YılanOyunu
             bas.Y = 5;
             yilan.Add(bas);
 
-            lblPuan.Text = Ayarlar.Puan.ToString();
+            lblPuan.Text = Ayarlar.Puan.ToString(); // puan metnini guncelleyelim
             BesinUret();
         }
 
         private void BesinUret()
         {
             int maksimumX = pbCanvas.Size.Width / Ayarlar.Genislik;
-            int maksimumY = pbCanvas.Size.Height / Ayarlar.Yukseklik;
+            int maksimumY = pbCanvas.Size.Height / Ayarlar.Yukseklik; // oyun alanının sınırlarını alıyoruz
 
             Random rastgele = new Random();
             do
@@ -48,7 +48,7 @@ namespace YılanOyunu
                 besin = new Cember();
                 besin.X = rastgele.Next(0, maksimumX);
                 besin.Y = rastgele.Next(0, maksimumY);
-            } while (!BesinKonumuUygun(besin));
+            } while (!BesinKonumuUygun(besin)); // besinin, yılanın gövdesi üzerinde oluşturulmaması gerekiyor
         }
 
         private bool BesinKonumuUygun(Cember besin)
@@ -101,7 +101,7 @@ namespace YılanOyunu
                         case Yon.Sol:
                             yilan[i].X--; break;
                         case Yon.Yukari:
-                            yilan[i].Y--; break;
+                            yilan[i].Y--; break; // Y degeri aşağı doğru artıyor
                         case Yon.Asagi:
                             yilan[i].Y++; break;
                     }
@@ -162,7 +162,7 @@ namespace YılanOyunu
         {
             Graphics canvas = e.Graphics; // canvas objesini alıyoruz 
 
-            if (!Ayarlar.OyunBitti)
+            if (!Ayarlar.OyunBitti) // Oyun bitmedi ise görsel güncellemeleri yapıyoruz
             {
                 // Yılan konumunu guncelliyoruz
                 Brush yilanRenk;
@@ -186,9 +186,9 @@ namespace YılanOyunu
 
                 }
             }
-            else
+            else // Oyun bitti ise puanını gösterip oyunu sonlandırıyoruz
             {
-                string oyunBitimiMetni = $"Oyun Bitti \nSkorunuz : {Ayarlar.Puan}\nEnter a basarak yeni oyuna baslayabilirsiniz..";
+                string oyunBitimiMetni = $"Oyun Bitti \nPuanınız : {Ayarlar.Puan}\nEnter a basarak yeni oyuna baslayabilirsiniz..";
                 lblOyunSonuMetni.Text = oyunBitimiMetni;
                 lblOyunSonuMetni.Visible = true;
             }

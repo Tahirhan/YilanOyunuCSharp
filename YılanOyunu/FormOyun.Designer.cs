@@ -53,9 +53,9 @@
             label1.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(533, 24);
             label1.Name = "label1";
-            label1.Size = new Size(106, 37);
+            label1.Size = new Size(100, 37);
             label1.TabIndex = 1;
-            label1.Text = "Score : ";
+            label1.Text = "Puan : ";
             // 
             // lblPuan
             // 
@@ -93,6 +93,7 @@
             Controls.Add(pbCanvas);
             Name = "FormOyun";
             Text = "Yılan Oyunu - KodEgitimi.com";
+            Load += FormOyun_Load;
             KeyDown += FormOyun_KeyDown;
             KeyUp += FormOyun_KeyUp;
             ((System.ComponentModel.ISupportInitialize)pbCanvas).EndInit();
