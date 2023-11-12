@@ -93,7 +93,6 @@
             Controls.Add(pbCanvas);
             Name = "FormOyun";
             Text = "Yılan Oyunu - KodEgitimi.com";
-            Load += FormOyun_Load;
             KeyDown += FormOyun_KeyDown;
             KeyUp += FormOyun_KeyUp;
             ((System.ComponentModel.ISupportInitialize)pbCanvas).EndInit();
